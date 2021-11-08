@@ -13,8 +13,9 @@ session_start();
 if(isset($_POST['email'])){
     $email=$_POST['email'];
     $password=$_POST['password'];
+    $encryptedPass=md5($password);
     $name=$_POST['name'];
-    $sql="INSERT INTO users (email,name,password) VALUES ('".$email."','".$name."','".$password."')";
+    $sql="INSERT INTO users (email,name,password) VALUES ('".$email."','".$name."','".$encryptedPass."')";
 
     if(mysqli_query($con, $sql)){
         $_SESSION['name']=$name;

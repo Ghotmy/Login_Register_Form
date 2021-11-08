@@ -14,8 +14,9 @@ if(isset($_POST['email'])){
 
     $email=$_POST['email'];
     $password=$_POST['password'];
+    $encryptedPass=md5($password);
 
-    $sql="select * from users where email='".$email."' AND password='".$password."' limit 1";
+    $sql="select * from users where email='".$email."' AND password='".$encryptedPass."' limit 1";
 
     $result = mysqli_query($con,$sql);
 
